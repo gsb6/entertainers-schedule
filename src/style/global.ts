@@ -1,13 +1,32 @@
 import { createGlobalStyle } from 'styled-components';
-import clownImage from '../assets/humberto-chavez-7MZclz4GQE8-unsplash.jpg';
 
 const GlobalStyle = createGlobalStyle`
   * {
+    margin: 0;
+    padding: 0;
+    outline: 0;
     box-sizing: border-box;
   }
 
+  html {
+    font-size: 62.5%;
+  }
+
+  html, body {
+    font-family: Quicksand;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+  }
+
   html, body, #root {
+    min-width: 320px;
     height: 100%;
+  }
+
+  body {
+    background-color: #e5e5e5;
+    color: #565656;
+    font-size: 1.6rem;
   }
 
   #root {
@@ -15,28 +34,8 @@ const GlobalStyle = createGlobalStyle`
     flex-direction: column;
   }
 
-  body {
-    margin: 0;
-    background-color: #e5e5e5;
-    font-family: Quicksand, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 36px;
-    color: #565656;
-  }
-
-  main {
-    flex: 1;
-    width: 30%;
-    max-width: 670px;
-    background: url(${clownImage});
-    background-size: cover;
-    background-position-x: center;
-    background-position-y: top;
-  }
-
-  article {
-    height: 100%;
-    background: linear-gradient(161.88deg, #FC66A4 0%, #993CFF 98.7%);
-    opacity: 0.8;
+  h1 {
+    font-size: 2.2rem;
   }
 `;
 
