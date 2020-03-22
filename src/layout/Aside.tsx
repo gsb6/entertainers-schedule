@@ -21,7 +21,7 @@ const Container = styled.aside`
 
 const Gradient = styled.div`
   height: 100%;
-  background: linear-gradient(161.88deg, #FC66A4 0%, #993CFF 98.7%);
+  background: linear-gradient(161.88deg, #fc66a4 0%, #993cff 98.7%);
   opacity: 0.8;
 `;
 

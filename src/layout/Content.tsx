@@ -36,11 +36,11 @@ const LoginButton = styled(Button)`
   width: 218px;
   margin-right: 16px;
   padding: 18px;
-  background-color: #E77CCA;
+  background-color: #e77cca;
   color: #fff;
 
   &:hover {
-    background-color: #D271B8;
+    background-color: #d271b8;
   }
 
   @media ${devices.laptop} {
@@ -68,7 +68,7 @@ const RegisterButton = styled(Button)`
     margin-bottom: 20px;
     padding: 18px;
     background-color: #fff;
-    color: #BE50B1;
+    color: #be50b1;
   }
 `;
 
@@ -83,6 +83,6 @@ const Content: React.FC = () => (
     <Card />
     Desafio Front End Triider
   </Container>
-)
+);
 
 export default Content;

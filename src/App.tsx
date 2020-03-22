@@ -5,17 +5,15 @@ import Wrapper from './layout/Wrapper';
 import Aside from './layout/Aside';
 import Content from './layout/Content';
 
-function App() {
-  return (
-    <>
-      <GlobalStyle />
-      <Header />
-      <Wrapper>
-        <Aside />
-        <Content />
-      </Wrapper>
-    </>
-  );
-}
+const App: React.FC = () => (
+  <>
+    <GlobalStyle />
+    <Header />
+    <Wrapper>
+      <Aside />
+      <Content />
+    </Wrapper>
+  </>
+);
 
 export default App;

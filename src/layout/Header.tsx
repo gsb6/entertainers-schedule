@@ -18,6 +18,6 @@ const Container = styled.header`
   }
 `;
 
-const Header:React.FC = () => <Container />
+const Header: React.FC = () => <Container />;
 
 export default Header;

@@ -14,10 +14,6 @@ export const Container = styled.div`
   }
 `;
 
-const Wrapper: React.FC = ({ children }) => (
-  <Container>
-    {children}
-  </Container>
-)
+const Wrapper: React.FC = ({ children }) => <Container>{children}</Container>;
 
 export default Wrapper;

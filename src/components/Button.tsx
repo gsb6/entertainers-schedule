@@ -11,7 +11,7 @@ const Container = styled.button`
 export type Props = {
   onClick: () => void;
   label: string;
-}
+};
 
 const Button: React.FC<Props> = ({ onClick, label, ...rest }) => (
   <Container onClick={onClick} {...rest}>
