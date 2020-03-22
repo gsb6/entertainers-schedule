@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
+import { devices } from '../style/devices';
 
 const GlobalStyle = createGlobalStyle`
   * {
@@ -35,7 +36,23 @@ const GlobalStyle = createGlobalStyle`
   }
 
   h1 {
-    font-size: 2.2rem;
+    font-size: 3.2rem;
+    font-weight: normal;
+  }
+
+  @media ${devices.mobileL} {
+    h1 {
+      font-size: 2.4rem;
+      text-align: center;
+    }
+  }
+
+  @media ${devices.mobileL} {
+    h1 {
+      font-size: 2.2rem;
+      text-align: center;
+      color: #fff;
+    }
   }
 `;
 
