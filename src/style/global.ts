@@ -35,16 +35,15 @@ const GlobalStyle = createGlobalStyle`
     flex-direction: column;
   }
 
+  hr {
+    margin: 1em 0;
+    border: 0;
+    border-top: 1px solid #ccc;
+  }
+
   h1 {
     font-size: 3.2rem;
     font-weight: normal;
-  }
-
-  @media ${devices.mobileL} {
-    h1 {
-      font-size: 2.4rem;
-      text-align: center;
-    }
   }
 
   @media ${devices.mobileL} {
