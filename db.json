@@ -4,6 +4,7 @@
       "id": 1,
       "name": "usuário teste",
       "email": "teste@teste.com",
+      "password": "123",
       "category": "magician",
       "week_days": [
         "monday",
@@ -14,11 +15,7 @@
         "saturday",
         "sunday"
       ],
-      "day_shifts": [
-        "morning",
-        "afternoon",
-        "night"
-      ],
+      "day_shifts": ["morning", "afternoon", "night"],
       "price": 200
     }
   ],

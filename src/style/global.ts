@@ -46,9 +46,19 @@ const GlobalStyle = createGlobalStyle`
     font-weight: normal;
   }
 
+  a {
+    background-color: transparent;
+    text-decoration: none;
+    color: #e77cca;
+
+  &:hover {
+    text-decoration: underline;
+  }
+  }
+
   @media ${devices.mobileL} {
     h1 {
-      font-size: 2.2rem;
+      font-size: 2.8rem;
       text-align: center;
       color: #fff;
     }
