@@ -1,18 +1,14 @@
 import React from 'react';
 import GlobalStyle from './style/global';
-import Header from './layout/Header';
-import Wrapper from './layout/Wrapper';
-import Aside from './layout/Aside';
-import Content from './layout/Content';
+import Layout from './layout';
+import Routes from './routes';
 
 const App: React.FC = () => (
   <>
     <GlobalStyle />
-    <Header />
-    <Wrapper>
-      <Aside />
-      <Content />
-    </Wrapper>
+    <Layout>
+      <Routes />
+    </Layout>
   </>
 );
 
