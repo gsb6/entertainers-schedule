@@ -10,8 +10,8 @@ export const Container = styled(Button)`
   color: #fff;
 `;
 
-const GradientButton: React.FC<Props> = ({ onClick, label, ...rest }) => {
-  return <Container onClick={onClick} label={label} {...rest} />;
+const GradientButton: React.FC<Props> = ({ onClick, label, type, ...rest }) => {
+  return <Container onClick={onClick} label={label} type={type} {...rest} />;
 };
 
 export default GradientButton;

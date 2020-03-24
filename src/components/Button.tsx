@@ -9,12 +9,13 @@ const Container = styled.button`
 `;
 
 export type Props = {
-  onClick: () => void;
+  onClick?: () => void;
   label: string;
+  type?: 'button' | 'submit' | 'reset' | undefined;
 };
 
-const Button: React.FC<Props> = ({ onClick, label, ...rest }) => (
-  <Container onClick={onClick} {...rest}>
+const Button: React.FC<Props> = ({ onClick, label, type, ...rest }) => (
+  <Container onClick={onClick} type={type} {...rest}>
     {label}
   </Container>
 );
