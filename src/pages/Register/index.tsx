@@ -1,24 +1,23 @@
 import React, { useRef } from 'react';
+import { useDispatch } from 'react-redux';
 import { Form } from '@unform/web';
 import { FormHandles } from '@unform/core';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import * as Yup from 'yup';
-import api from '../../services/api';
+import { FirstStep, RegisterCreators } from '../../store/ducks/register';
 
-import Input from '../../components/Input';
 import GradientButton from '../../components/GradientButton';
+import Input from '../../components/Input';
 import Title from '../../components/Title';
 
 import { Container } from './styles';
 
-type User = {
-  name: string;
-  email: string;
-  password: string;
-};
-
 const Register: React.FC = () => {
   const formRef = useRef<FormHandles>(null);
+
+  const dispatch = useDispatch();
+
+  const history = useHistory();
 
   const schema = Yup.object().shape({
     name: Yup.string()
@@ -28,13 +27,17 @@ const Register: React.FC = () => {
     password: Yup.string().required('Campo obrigatório'),
   });
 
-  const handleSubmit = async (data: User) => {
+  const handleSubmit = async (data: FirstStep) => {
     try {
       await schema.validate(data, {
         abortEarly: false,
       });
 
       formRef.current?.setErrors({});
+
+      dispatch(RegisterCreators.setFirstStep(data));
+
+      history.push('/register/workinfo');
     } catch (e) {
       if (e instanceof Yup.ValidationError) {
         const errorMessages: any = {};
@@ -56,7 +59,7 @@ const Register: React.FC = () => {
           <Input label="Qual o seu nome?" name="name" />
           <Input label="E seu e-mail?" name="email" />
           <Input label="Crie uma senha" name="password" type="password" />
-          <GradientButton label="Avançar" onClick={() => {}} />
+          <GradientButton label="Avançar" type="submit" />
         </Form>
         <hr />
         <span>Já possui conta?</span>

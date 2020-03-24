@@ -44,7 +44,10 @@ const INITIAL_STATE: UserState = {
 const reducer: Reducer<UserState> = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case LoginTypes.REQUEST:
-      return { ...state, loading: true };
+      return {
+        ...state,
+        loading: true,
+      };
     case LoginTypes.SUCCESS:
       return {
         data: action.payload.data,
@@ -52,7 +55,11 @@ const reducer: Reducer<UserState> = (state = INITIAL_STATE, action) => {
         error: null,
       };
     case LoginTypes.FAILURE:
-      return { data: null, loading: false, error: action.payload.error };
+      return {
+        data: null,
+        loading: false,
+        error: action.payload.error,
+      };
     default:
       return state;
   }

@@ -7,11 +7,11 @@ import * as Yup from 'yup';
 import { ApplicationState } from '../../store';
 import { Auth, LoginCreators } from '../../store/ducks/user';
 
-import { Container } from './styles';
-
 import GradientButton from '../../components/GradientButton';
 import Input from '../../components/Input';
 import Title from '../../components/Title';
+
+import { Container } from './styles';
 
 type FormOptions = {
   reset: () => void;
