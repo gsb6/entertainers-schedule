@@ -5,12 +5,24 @@ import { devices } from '../../style/devices';
 import Button from '../../components/Button';
 
 export const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+
   @media ${devices.mobileL} {
-    margin-top: 30%;
-    display: flex;
-    flex-direction: column;
     justify-content: space-between;
-    flex: 1;
+    margin-top: 20%;
+  }
+`;
+
+export const Body = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  flex: 1;
+
+  @media ${devices.mobileL} {
+    justify-content: flex-end;
   }
 `;
 
@@ -59,6 +71,8 @@ export const RegisterButton = styled(Link)`
     margin-bottom: 20px;
     padding: 18px;
     background-color: #fff;
+    border-radius: 5px;
+    text-align: center;
     color: #be50b1;
   }
 `;
@@ -69,7 +83,13 @@ export const Line = styled.hr`
   }
 `;
 
-export const Info = styled.div`
+export const Cards = styled.div`
+  div {
+    &:not(:last-child) {
+      margin-bottom: 20px;
+    }
+  }
+
   @media ${devices.mobileL} {
     display: none;
   }
