@@ -7,7 +7,7 @@ import * as Yup from 'yup';
 import { FirstStep, RegisterCreators } from '../../store/ducks/register';
 
 import GradientButton from '../../components/GradientButton';
-import Input from '../../components/Input';
+import Input from '../../components/Form/Input';
 import Title from '../../components/Title';
 
 import { Container } from './styles';

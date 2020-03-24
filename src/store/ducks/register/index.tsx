@@ -16,7 +16,7 @@ export type FirstStep = {
 };
 
 export type SecondStep = {
-  category: string;
+  category: 'juggler' | 'magician' | 'clown';
   week_days: string[];
   day_shifts: string[];
   price: number;

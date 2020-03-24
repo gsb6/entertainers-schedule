@@ -17,7 +17,7 @@ export type User = {
   name: string;
   email: string;
   password: string;
-  category: string;
+  category: 'juggler' | 'magician' | 'clown';
   week_days: string[];
   day_shifts: string[];
   price: number;
@@ -27,6 +27,7 @@ export type UserState = {
   readonly data: User | null;
   readonly loading: boolean;
   readonly error: string | null;
+  readonly signed: boolean;
 };
 
 export const LoginCreators = {
@@ -39,6 +40,7 @@ const INITIAL_STATE: UserState = {
   data: null,
   loading: false,
   error: null,
+  signed: false,
 };
 
 const reducer: Reducer<UserState> = (state = INITIAL_STATE, action) => {
@@ -53,12 +55,14 @@ const reducer: Reducer<UserState> = (state = INITIAL_STATE, action) => {
         data: action.payload.data,
         loading: false,
         error: null,
+        signed: true,
       };
     case LoginTypes.FAILURE:
       return {
         data: null,
         loading: false,
         error: action.payload.error,
+        signed: false,
       };
     default:
       return state;
