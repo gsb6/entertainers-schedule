@@ -23,7 +23,7 @@ const Input: React.FC<Props> = ({ name, label, ...rest }) => {
   }, [fieldName, registerField]);
 
   return (
-    <>
+    <div>
       <S.Label htmlFor={name}>{label}</S.Label>
       <S.Container>
         <S.TextField
@@ -34,7 +34,7 @@ const Input: React.FC<Props> = ({ name, label, ...rest }) => {
         />
       </S.Container>
       {error && <S.Error>{error}</S.Error>}
-    </>
+    </div>
   );
 };
 

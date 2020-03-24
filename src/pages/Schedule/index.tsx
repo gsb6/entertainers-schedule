@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import moment from 'moment';
 
 import Modal from '../../components/Modal';
+import NewEvent from '../../components/NewEvent';
 import Title from '../../components/Title';
 
 import * as S from './styles';
@@ -21,7 +22,7 @@ const Schedule: React.FC = () => {
         onRequestClose={() => setOpenNewEvent(false)}
         title="Cadastrar evento"
       >
-        <h1>Modal</h1>
+        <NewEvent />
       </Modal>
     </S.Container>
   );
