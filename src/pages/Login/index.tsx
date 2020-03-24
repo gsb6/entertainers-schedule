@@ -1,20 +1,17 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Form } from '@unform/web';
-import { Link } from 'react-router-dom';
+import { FormHandles } from '@unform/core';
+import { Link, useHistory } from 'react-router-dom';
 import * as Yup from 'yup';
-import api from '../../services/api';
+import { ApplicationState } from '../../store';
+import { Auth, LoginCreators } from '../../store/ducks/user';
 
 import { Container } from './styles';
 
 import GradientButton from '../../components/GradientButton';
 import Input from '../../components/Input';
 import Title from '../../components/Title';
-import { FormHandles } from '@unform/core';
-
-type Login = {
-  email: string;
-  password: string;
-};
 
 type FormOptions = {
   reset: () => void;
@@ -23,12 +20,29 @@ type FormOptions = {
 const Login: React.FC = () => {
   const formRef = useRef<FormHandles>(null);
 
+  const dispatch = useDispatch();
+
+  const history = useHistory();
+
+  const { user } = useSelector((state: ApplicationState) => state);
+
+  useEffect(() => {
+    if (user.error) {
+      formRef.current?.setFieldError('email', user.error);
+      return;
+    }
+
+    if (user.data) {
+      history.push('/register');
+    }
+  }, [user]);
+
   const schema = Yup.object().shape({
     email: Yup.string().email('E-mail inválido').required('Campo obrigatório'),
     password: Yup.string().required('Campo obrigatório'),
   });
 
-  const handleSubmit = async (data: Login, { reset }: FormOptions) => {
+  const handleSubmit = async (data: Auth, { reset }: FormOptions) => {
     try {
       await schema.validate(data, {
         abortEarly: false,
@@ -36,21 +50,12 @@ const Login: React.FC = () => {
 
       formRef.current?.setErrors({});
 
-      const response = await api.get(`/users?email=${data.email}`);
+      dispatch(LoginCreators.request(data));
 
-      const user = response.data[0];
-
-      if (data.password !== user.password) {
-        formRef.current?.setFieldError('password', 'Senha incorreta');
-
-        reset();
-        return;
-      }
-
-      console.log('Autenticado');
+      reset();
     } catch (e) {
       if (e instanceof Yup.ValidationError) {
-        const errorMessages: any = {};
+        const errorMessages: { [key: string]: string } = {};
 
         e.inner.forEach((error) => {
           errorMessages[error.path] = error.message;
@@ -68,7 +73,7 @@ const Login: React.FC = () => {
         <Form onSubmit={handleSubmit} ref={formRef}>
           <Input name="email" label="E-mail" />
           <Input name="password" label="Senha" type="password" />
-          <GradientButton label="Entrar" onClick={() => {}} />
+          <GradientButton label="Entrar" type="submit" />
         </Form>
         <span>Esqueci minha senha</span>
         <hr />
