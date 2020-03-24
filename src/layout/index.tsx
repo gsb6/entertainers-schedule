@@ -5,7 +5,14 @@ import Wrapper from './Wrapper';
 import Aside from './Aside';
 import Content from './Content';
 
-const Layout: React.FC = ({ children }) => (
+export const Blank: React.FC = ({ children }) => (
+  <>
+    <Header />
+    {children}
+  </>
+);
+
+export const Layout: React.FC = ({ children }) => (
   <>
     <Header />
     <Wrapper>
@@ -14,5 +21,3 @@ const Layout: React.FC = ({ children }) => (
     </Wrapper>
   </>
 );
-
-export default Layout;
