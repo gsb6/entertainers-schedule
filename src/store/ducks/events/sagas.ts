@@ -6,7 +6,7 @@ export function* get({ payload }: any) {
   const { user_id } = payload;
 
   try {
-    const { data } = yield call(api.post, `/events?user_id=${user_id}`);
+    const { data } = yield call(api.get, `/events?user_id=${user_id}`);
 
     if (!data.length) {
       yield put(EventsCreators.failure('Nenhum evento encontrado'));
@@ -16,6 +16,7 @@ export function* get({ payload }: any) {
     yield put(EventsCreators.success(data));
   } catch (e) {
     yield put(EventsCreators.failure(e.toString()));
+    console.log(e);
   }
 }
 

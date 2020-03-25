@@ -15,11 +15,7 @@
         "saturday",
         "sunday"
       ],
-      "day_shifts": [
-        "morning",
-        "afternoon",
-        "night"
-      ],
+      "day_shifts": ["morning", "afternoon", "night"],
       "price": 200
     }
   ],
