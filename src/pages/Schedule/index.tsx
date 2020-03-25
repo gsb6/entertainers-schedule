@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import moment from 'moment';
 
 import Modal from '../../components/Modal';
 import NewEvent from '../../components/NewEvent';

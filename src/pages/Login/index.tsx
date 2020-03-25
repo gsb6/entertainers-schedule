@@ -33,7 +33,7 @@ const Login: React.FC = () => {
     }
 
     if (user.data) {
-      history.push('/register');
+      history.push('/schedule');
     }
   }, [user]);
 

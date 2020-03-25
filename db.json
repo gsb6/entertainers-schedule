@@ -15,7 +15,11 @@
         "saturday",
         "sunday"
       ],
-      "day_shifts": ["morning", "afternoon", "night"],
+      "day_shifts": [
+        "morning",
+        "afternoon",
+        "night"
+      ],
       "price": 200
     }
   ],
@@ -28,6 +32,24 @@
       "week_day": "friday",
       "day_shift": "morning",
       "address": "Rua Teste, 200 - 221B"
+    },
+    {
+      "user_id": 1,
+      "name": "Festa",
+      "date": "1585353600000",
+      "week_day": "saturday",
+      "day_shift": "afternoon",
+      "address": "PUCRS",
+      "id": 2
+    },
+    {
+      "user_id": 1,
+      "name": "La la la",
+      "date": "1585353600000",
+      "week_day": "saturday",
+      "day_shift": "night",
+      "address": "Redenção",
+      "id": 3
     }
   ]
 }
