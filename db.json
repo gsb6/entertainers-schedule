@@ -15,8 +15,18 @@
         "saturday",
         "sunday"
       ],
-      "day_shifts": ["morning", "afternoon", "night"],
+      "day_shifts": [
+        "morning",
+        "afternoon",
+        "night"
+      ],
       "price": 200
+    },
+    {
+      "id": 2
+    },
+    {
+      "id": 3
     }
   ],
   "events": [
@@ -46,6 +56,15 @@
       "day_shift": "night",
       "address": "Redenção",
       "id": 3
+    },
+    {
+      "user_id": 1,
+      "name": "Evento da Triider",
+      "date": "1585353600000",
+      "week_day": "saturday",
+      "day_shift": "afternoon",
+      "address": "Triider",
+      "id": 4
     }
   ]
 }

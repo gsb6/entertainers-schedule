@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 import { SecondStep, RegisterCreators } from '../../store/ducks/register/index';
+import { ApplicationState } from '../../store';
 
 import DayShifts from '../../components/DayShifts';
 import GradientButton from '../../components/GradientButton';
@@ -20,11 +22,15 @@ const categories = [
 const WorkInfo: React.FC = () => {
   const dispatch = useDispatch();
 
+  const history = useHistory();
+
+  const user = useSelector((state: ApplicationState) => state.register.data);
+
   const [work, setWork] = useState<SecondStep>({
     category: 'juggler',
     day_shifts: [],
     week_days: [],
-    price: 0,
+    price: '',
   });
 
   const changeCategoryHandler = (e: any) => {
@@ -49,7 +55,16 @@ const WorkInfo: React.FC = () => {
   };
 
   const createAccountHandler = () => {
+    const newUser = { ...user, ...work };
+
+    console.log(newUser);
+
     dispatch(RegisterCreators.setSecondStep(work));
+    dispatch(RegisterCreators.request(newUser));
+
+    alert('Usuário cadastrado');
+
+    history.push('/');
   };
 
   return (
@@ -67,7 +82,6 @@ const WorkInfo: React.FC = () => {
           name="price"
           label="Informe o preço do seu serviço"
           onChange={(e) => setWork({ ...work, price: e.target.value })}
-          type="number"
           value={work.price}
         />
         <GradientButton label="Criar conta" onClick={createAccountHandler} />

@@ -16,16 +16,16 @@ export type FirstStep = {
 };
 
 export type SecondStep = {
-  category: 'juggler' | 'magician' | 'clown';
+  category: string;
   week_days: string[];
   day_shifts: string[];
-  price: number;
+  price: string;
 };
 
-type User = FirstStep & SecondStep;
+export type User = FirstStep & SecondStep;
 
 export type UserState = {
-  readonly data: User | null;
+  readonly data: any;
   readonly loading: boolean;
   readonly error: string | null;
 };
@@ -35,7 +35,7 @@ export const RegisterCreators = {
     action(RegisterTypes.SET_FIRST_STEP, { data }),
   setSecondStep: (data: SecondStep) =>
     action(RegisterTypes.SET_SECOND_STEP, { data }),
-  request: (user: User) => action(RegisterTypes.REQUEST, { user }),
+  request: (user: User | null) => action(RegisterTypes.REQUEST, { user }),
   success: (data: User) => action(RegisterTypes.SUCCESS, { data }),
   failure: (error: string) => action(RegisterTypes.FAILURE, { error }),
 };
