@@ -1,13 +1,12 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
-import { ApplicationState } from './store';
 import { Blank, Layout } from './layout';
 
-import Initial from './pages/Initial';
+import Home from './pages/Home';
 import Login from './pages/Login';
-import Register from './pages/Register';
-import WorkInfo from './pages/WorkInfo';
+import FirstStep from './pages/Register/FirstStep';
+import SecondStep from './pages/Register/SecondStep';
 import Schedule from './pages/Schedule';
 
 const PrivateRoute = ({ component: Component, ...rest }) => {
@@ -36,7 +35,7 @@ const Routes = () => {
           path="/"
           component={() => (
             <Layout>
-              <Initial />
+              <Home />
             </Layout>
           )}
         />
@@ -51,19 +50,19 @@ const Routes = () => {
         />
         <Route
           exact
-          path="/register"
+          path="/register/first-step"
           component={() => (
             <Layout>
-              <Register />
+              <FirstStep />
             </Layout>
           )}
         />
         <Route
           exact
-          path="/register/workinfo"
+          path="/register/second-step"
           component={() => (
             <Layout>
-              <WorkInfo />
+              <SecondStep />
             </Layout>
           )}
         />

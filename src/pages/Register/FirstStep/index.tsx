@@ -4,13 +4,12 @@ import { Form } from '@unform/web';
 import { FormHandles } from '@unform/core';
 import { Link, useHistory } from 'react-router-dom';
 import * as Yup from 'yup';
-import { FirstStep, RegisterCreators } from '../../store/ducks/register';
+import { FirstStep, RegisterCreators } from '../../../store/ducks/register';
 
-import GradientButton from '../../components/GradientButton';
-import Input from '../../components/Form/Input';
-import Title from '../../components/Title';
+import Input from '../../../components/Form/Input';
+import Title from '../../../components/Title';
 
-import { Container } from './styles';
+import * as S from './styles';
 
 const Register: React.FC = () => {
   const formRef = useRef<FormHandles>(null);
@@ -54,17 +53,17 @@ const Register: React.FC = () => {
   return (
     <>
       <Title>Criar conta</Title>
-      <Container>
+      <S.Container>
         <Form onSubmit={handleSubmit} ref={formRef}>
           <Input label="Qual o seu nome?" name="name" />
           <Input label="E seu e-mail?" name="email" />
           <Input label="Crie uma senha" name="password" type="password" />
-          <GradientButton label="Avançar" type="submit" />
+          <S.SubmitButton label="Avançar" type="submit" />
         </Form>
         <hr />
         <span>Já possui conta?</span>
         <Link to="/login">Entrar</Link>
-      </Container>
+      </S.Container>
     </>
   );
 };

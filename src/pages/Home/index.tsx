@@ -9,7 +9,7 @@ import Title from '../../components/Title';
 import IconBalloon from '../../assets/balloon.svg';
 import IconParty from '../../assets/party.svg';
 
-const Initial: React.FC = () => {
+const Home: React.FC = () => {
   const history = useHistory();
   return (
     <>
@@ -48,4 +48,4 @@ const Initial: React.FC = () => {
   );
 };
 
-export default Initial;
+export default Home;

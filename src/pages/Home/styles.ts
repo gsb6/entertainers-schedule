@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import { devices } from '../../style/devices';
+import { devices } from '../../styles/devices';
 
 import Button from '../../components/Button';
 

@@ -1,15 +1,18 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import { SecondStep, RegisterCreators } from '../../store/ducks/register/index';
-import { ApplicationState } from '../../store';
+import {
+  SecondStep,
+  RegisterCreators,
+} from '../../../store/ducks/register/index';
+import { ApplicationState } from '../../../store';
 
-import DayShifts from '../../components/DayShifts';
-import GradientButton from '../../components/GradientButton';
-import Input from '../../components/Input';
-import Select from '../../components/Select';
-import Title from '../../components/Title';
-import WeekDays from '../../components/WeekDays';
+import DayShifts from '../../../components/DayShifts';
+import GradientButton from '../../../components/GradientButton';
+import Input from '../../../components/Input';
+import Select from '../../../components/Select';
+import Title from '../../../components/Title';
+import WeekDays from '../../../components/WeekDays';
 
 import { Container } from './styles';
 
