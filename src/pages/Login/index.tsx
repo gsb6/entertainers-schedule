@@ -1,21 +1,17 @@
 import React, { useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 import { Form } from '@unform/web';
 import { FormHandles } from '@unform/core';
-import { Link, useHistory } from 'react-router-dom';
 import * as Yup from 'yup';
-import { ApplicationState } from '../../store';
-import { Auth, LoginCreators } from '../../store/ducks/user';
 
-import GradientButton from '../../components/GradientButton';
+import { ApplicationState } from '../../store';
+import { Login as TLogin, UserCreators } from '../../store/ducks/user';
+
 import Input from '../../components/Form/Input';
 import Title from '../../components/Title';
 
-import { Container } from './styles';
-
-type FormOptions = {
-  reset: () => void;
-};
+import * as S from './styles';
 
 const Login: React.FC = () => {
   const formRef = useRef<FormHandles>(null);
@@ -32,7 +28,7 @@ const Login: React.FC = () => {
       return;
     }
 
-    if (user.data) {
+    if (user.signed) {
       history.push('/schedule');
     }
   }, [user]);
@@ -42,7 +38,7 @@ const Login: React.FC = () => {
     password: Yup.string().required('Campo obrigatório'),
   });
 
-  const handleSubmit = async (data: Auth, { reset }: FormOptions) => {
+  const handleSubmit = async (data: TLogin) => {
     try {
       await schema.validate(data, {
         abortEarly: false,
@@ -50,9 +46,7 @@ const Login: React.FC = () => {
 
       formRef.current?.setErrors({});
 
-      dispatch(LoginCreators.request(data));
-
-      reset();
+      dispatch(UserCreators.loginRequest(data));
     } catch (e) {
       if (e instanceof Yup.ValidationError) {
         const errorMessages: { [key: string]: string } = {};
@@ -69,17 +63,22 @@ const Login: React.FC = () => {
   return (
     <>
       <Title>Entrar</Title>
-      <Container>
+      <S.Container>
         <Form onSubmit={handleSubmit} ref={formRef}>
           <Input name="email" label="E-mail" />
           <Input name="password" label="Senha" type="password" />
-          <GradientButton label="Entrar" type="submit" />
+          <S.SubmitButton label="Entrar" type="submit" />
         </Form>
-        <span>Esqueci minha senha</span>
+        <S.ForgotPassword>Esqueci minha senha</S.ForgotPassword>
         <hr />
-        <span>Não possui uma conta?</span>
-        <Link to="/register">Criar conta</Link>
-      </Container>
+        <S.Footer>
+          <div>Não possui uma conta?</div>
+          <S.RegisterButton
+            label="Criar conta"
+            onClick={() => history.push('/register/first-step')}
+          />
+        </S.Footer>
+      </S.Container>
     </>
   );
 };

@@ -51,7 +51,7 @@ const NewEvent: React.FC = () => {
       address,
     };
 
-    dispatch(EventsCreators.add(payload));
+    // dispatch(EventsCreators.add(payload));
 
     alert('Evento criado!');
 

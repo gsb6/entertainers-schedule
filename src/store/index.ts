@@ -2,7 +2,6 @@ import { createStore, applyMiddleware, Store } from 'redux';
 import createSagaMiddleware from 'redux-saga';
 
 import { UserState } from './ducks/user';
-import { UserState as RegisterState } from './ducks/register';
 import { EventState } from './ducks/events';
 
 import rootReducer from './ducks/rootReducer';
@@ -10,7 +9,6 @@ import rootSaga from './ducks/rootSaga';
 
 export interface ApplicationState {
   user: UserState;
-  register: RegisterState;
   events: EventState;
 }
 

@@ -21,7 +21,10 @@ const Home: React.FC = () => {
               label="Entrar"
               onClick={() => history.push('/login')}
             />
-            <S.RegisterButton to="/register">Criar conta</S.RegisterButton>
+            <S.RegisterButton
+              label="Criar conta"
+              onClick={() => history.push('/register/first-step')}
+            />
           </S.Buttons>
           <S.Line />
           <S.Cards>

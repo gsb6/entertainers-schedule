@@ -44,6 +44,12 @@ const GlobalStyle = createGlobalStyle`
   h1 {
     font-size: 3.2rem;
     font-weight: normal;
+
+    @media ${devices.mobileL} {
+      font-size: 2.8rem;
+      text-align: center;
+      color: #fff;
+    }
   }
 
   a {
@@ -51,16 +57,8 @@ const GlobalStyle = createGlobalStyle`
     text-decoration: none;
     color: #e77cca;
 
-  &:hover {
-    text-decoration: underline;
-  }
-  }
-
-  @media ${devices.mobileL} {
-    h1 {
-      font-size: 2.8rem;
-      text-align: center;
-      color: #fff;
+    &:hover {
+      text-decoration: underline;
     }
   }
 `;

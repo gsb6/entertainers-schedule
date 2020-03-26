@@ -1,10 +1,11 @@
 import React, { useRef } from 'react';
 import { useDispatch } from 'react-redux';
+import { Link, useHistory } from 'react-router-dom';
 import { Form } from '@unform/web';
 import { FormHandles } from '@unform/core';
-import { Link, useHistory } from 'react-router-dom';
 import * as Yup from 'yup';
-import { FirstStep, RegisterCreators } from '../../../store/ducks/register';
+
+import { User, UserCreators } from '../../../store/ducks/user';
 
 import Input from '../../../components/Form/Input';
 import Title from '../../../components/Title';
@@ -12,11 +13,11 @@ import Title from '../../../components/Title';
 import * as S from './styles';
 
 const Register: React.FC = () => {
-  const formRef = useRef<FormHandles>(null);
+  const history = useHistory();
 
   const dispatch = useDispatch();
 
-  const history = useHistory();
+  const formRef = useRef<FormHandles>(null);
 
   const schema = Yup.object().shape({
     name: Yup.string()
@@ -26,7 +27,7 @@ const Register: React.FC = () => {
     password: Yup.string().required('Campo obrigatório'),
   });
 
-  const handleSubmit = async (data: FirstStep) => {
+  const handleSubmit = async (data: User) => {
     try {
       await schema.validate(data, {
         abortEarly: false,
@@ -34,12 +35,12 @@ const Register: React.FC = () => {
 
       formRef.current?.setErrors({});
 
-      dispatch(RegisterCreators.setFirstStep(data));
+      dispatch(UserCreators.registerFirstStep(data));
 
-      history.push('/register/workinfo');
+      history.push('/register/second-step');
     } catch (e) {
       if (e instanceof Yup.ValidationError) {
-        const errorMessages: any = {};
+        const errorMessages: { [key: string]: string } = {};
 
         e.inner.forEach((error) => {
           errorMessages[error.path] = error.message;
@@ -61,8 +62,13 @@ const Register: React.FC = () => {
           <S.SubmitButton label="Avançar" type="submit" />
         </Form>
         <hr />
-        <span>Já possui conta?</span>
-        <Link to="/login">Entrar</Link>
+        <S.Footer>
+          <div>Já possui uma conta?</div>
+          <S.LoginButton
+            label="Entrar"
+            onClick={() => history.push('/login')}
+          />
+        </S.Footer>
       </S.Container>
     </>
   );

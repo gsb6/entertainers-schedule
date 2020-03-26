@@ -9,6 +9,7 @@ export const Container = styled.select`
   border: 1px solid #ccc;
   color: #ee7ec2;
   appearance: button;
+  font: inherit;
 `;
 
 export const Label = styled.label`

@@ -9,9 +9,9 @@ export const Label = styled.label`
   }
 `;
 
-export const Container = styled.div`
-  margin: 12px 0 32px 0;
-  padding: 16px;
+export const Box = styled.div`
+  margin-top: 12px;
+  padding: 12px;
   background-color: transparent;
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -27,10 +27,12 @@ export const TextField = styled.input`
   background: transparent;
   border: 0;
   font: inherit;
-  color: #ee7ec2;
-  -webkit-text-fill-color: #ee7ec2;
+  color: ${({ theme }) => theme.palette.primary};
+  -webkit-text-fill-color: ${({ theme }) => theme.palette.primary};
 `;
 
 export const Error = styled.div`
-  color: red;
+  height: 24px;
+  font-size: 12px;
+  color: ${({ theme }) => theme.palette.error};
 `;

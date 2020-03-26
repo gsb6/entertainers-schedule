@@ -20,17 +20,45 @@ export const inputLabel = css`
   }
 `;
 
+export const textButton = css`
+  padding: 8px 16px;
+  background-color: transparent;
+  color: ${({ theme }) => theme.palette.primary};
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+`;
+
+export const containedButton = css`
+  background-color: ${({ theme }) => theme.palette.primary};
+  color: #fff;
+
+  &:hover {
+    background-color: ${({ theme }) => shade(0.1, theme.palette.primary)};
+  }
+`;
+
+export const outlinedButton = css`
+  background-color: transparent;
+  border: 1px solid #fff;
+  color: #fff;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+  }
+`;
+
 export const gradientButton = css`
   width: 100%;
-  padding: 16px;
   background: linear-gradient(104.06deg, #f180c1 4.55%, #a450c9 95.79%);
   color: #fff;
 
   &:hover {
     background: linear-gradient(
       104.06deg,
-      ${shade(0.15, '#f180c1')} 4.55%,
-      ${shade(0.15, '#a450c9')} 95.79%
+      ${shade(0.1, '#f180c1')} 4.55%,
+      ${shade(0.1, '#a450c9')} 95.79%
     );
   }
 `;

@@ -25,15 +25,15 @@ const Input: React.FC<Props> = ({ name, label, ...rest }) => {
   return (
     <div>
       <S.Label htmlFor={name}>{label}</S.Label>
-      <S.Container>
+      <S.Box>
         <S.TextField
           defaultValue={defaultValue}
           id={name}
           ref={inputRef}
           {...rest}
         />
-      </S.Container>
-      {error && <S.Error>{error}</S.Error>}
+      </S.Box>
+      <S.Error>{error}</S.Error>
     </div>
   );
 };

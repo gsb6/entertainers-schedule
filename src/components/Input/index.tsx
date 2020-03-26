@@ -7,7 +7,7 @@ type Props = {
   label: string;
   type?: string;
   error?: string;
-  value?: string;
+  value?: string | number;
   onChange?: (e: any) => void;
 };
 

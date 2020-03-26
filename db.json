@@ -23,10 +23,21 @@
       "price": 200
     },
     {
+      "name": "Gabriel Brunichaki",
+      "email": "gabriel.brunichakI@gmail.com",
+      "password": "1234",
+      "category": "clown",
+      "week_days": [
+        "wednesday",
+        "thursday",
+        "saturday"
+      ],
+      "day_shifts": [
+        "afternoon",
+        "night"
+      ],
+      "price": "200",
       "id": 2
-    },
-    {
-      "id": 3
     }
   ],
   "events": [

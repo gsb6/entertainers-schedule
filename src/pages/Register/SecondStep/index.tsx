@@ -1,10 +1,7 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import {
-  SecondStep,
-  RegisterCreators,
-} from '../../../store/ducks/register/index';
+import { User, UserCreators } from '../../../store/ducks/user';
 import { ApplicationState } from '../../../store';
 
 import DayShifts from '../../../components/DayShifts';
@@ -22,48 +19,53 @@ const categories = [
   { value: 'clown', label: 'Palhaço' },
 ];
 
-const WorkInfo: React.FC = () => {
+const SecondStep: React.FC = () => {
   const dispatch = useDispatch();
 
   const history = useHistory();
 
-  const user = useSelector((state: ApplicationState) => state.register.data);
+  const [user, setUser] = useState<User>({});
 
-  const [work, setWork] = useState<SecondStep>({
-    category: 'juggler',
-    day_shifts: [],
-    week_days: [],
-    price: '',
-  });
+  const firstStepData = useSelector(
+    (state: ApplicationState) => state.user.data
+  );
 
-  const changeCategoryHandler = (e: any) => {
-    setWork({
-      ...work,
+  useEffect(() => {
+    setUser({
+      ...user,
+      ...firstStepData,
+    });
+  }, [firstStepData]);
+
+  useEffect(() => {
+    console.log(user);
+  }, [user]);
+
+  const changeCategoryHandler = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setUser({
+      ...user,
       category: e.target.value,
     });
   };
 
   const changeWeekDaysHandler = (days: string[]) => {
-    setWork({
-      ...work,
+    setUser({
+      ...user,
       week_days: days,
     });
   };
 
   const changeDayShiftsHandler = (shifts: string[]) => {
-    setWork({
-      ...work,
+    setUser({
+      ...user,
       day_shifts: shifts,
     });
   };
 
   const createAccountHandler = () => {
-    const newUser = { ...user, ...work };
+    console.log(user);
 
-    console.log(newUser);
-
-    dispatch(RegisterCreators.setSecondStep(work));
-    dispatch(RegisterCreators.request(newUser));
+    dispatch(UserCreators.registerRequest(user));
 
     alert('Usuário cadastrado');
 
@@ -84,8 +86,8 @@ const WorkInfo: React.FC = () => {
         <Input
           name="price"
           label="Informe o preço do seu serviço"
-          onChange={(e) => setWork({ ...work, price: e.target.value })}
-          value={work.price}
+          onChange={(e) => setUser({ ...user, price: e.target.value })}
+          value={user.price}
         />
         <GradientButton label="Criar conta" onClick={createAccountHandler} />
       </Container>
@@ -93,4 +95,4 @@ const WorkInfo: React.FC = () => {
   );
 };
 
-export default WorkInfo;
+export default SecondStep;

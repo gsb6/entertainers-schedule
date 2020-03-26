@@ -19,7 +19,7 @@ const Schedule: React.FC = () => {
 
   useEffect(() => {
     if (user) {
-      dispatch(EventsCreators.request(user!.id));
+      // dispatch(EventsCreators.request(user!.id));
     }
   }, [user]);
 

@@ -1,6 +1,10 @@
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
 import { devices } from '../../styles/devices';
+import {
+  containedButton,
+  outlinedButton,
+  textButton,
+} from '../../styles/commons';
 
 import Button from '../../components/Button';
 
@@ -36,15 +40,10 @@ export const Buttons = styled.div`
 `;
 
 export const LoginButton = styled(Button)`
-  width: 218px;
-  margin-right: 16px;
-  padding: 18px;
-  background-color: #e77cca;
-  color: #fff;
+  width: 220px;
+  margin-right: 20px;
 
-  &:hover {
-    background-color: #d271b8;
-  }
+  ${containedButton};
 
   @media ${devices.laptop} {
     width: 200px;
@@ -53,27 +52,26 @@ export const LoginButton = styled(Button)`
   @media ${devices.mobileL} {
     width: 100%;
     margin: 0;
-    background-color: transparent;
-    border: 1px solid #fff;
+
+    ${outlinedButton};
   }
 `;
 
-export const RegisterButton = styled(Link)`
-  background-color: transparent;
-  color: #e77cca;
-
-  &:hover {
-    text-decoration: underline;
-  }
+export const RegisterButton = styled(Button)`
+  ${textButton};
 
   @media ${devices.mobileL} {
+    ${containedButton};
+
     width: 100%;
     margin-bottom: 20px;
-    padding: 18px;
+    padding: 16px;
     background-color: #fff;
-    border-radius: 5px;
-    text-align: center;
     color: #be50b1;
+
+    &:hover {
+      background-color: #ddd;
+    }
   }
 `;
 
@@ -103,9 +101,10 @@ export const CardBody = styled.div`
     width: 12%;
   }
 
-  span: {
-    flex: 1;
+  span {
     margin: 0 24px;
+    flex-wrap: wrap;
+    flex: 1;
   }
 `;
 
