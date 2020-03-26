@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { devices } from '../../../style/devices';
+import { devices } from '../../../styles/devices';
 
 export const Label = styled.label`
   font-size: 1.8rem;

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import { devices } from '../../style/devices';
-import { mobileFormContainer } from '../../style/commons';
+import { devices } from '../../styles/devices';
+import { mobileFormContainer } from '../../styles/commons';
 
 export const Container = styled.div`
   @media ${devices.mobileL} {

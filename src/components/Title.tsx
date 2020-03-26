@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { devices } from '../style/devices';
+import { devices } from '../styles/devices';
 
 export const Container = styled.h1`
   padding: 40px 0;

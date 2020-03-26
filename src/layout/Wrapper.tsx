@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { devices } from '../style/devices';
+import { devices } from '../styles/devices';
 
 export const Container = styled.div`
   display: flex;

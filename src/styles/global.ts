@@ -1,11 +1,11 @@
 import { createGlobalStyle } from 'styled-components';
-import { devices } from '../style/devices';
+import { devices } from './devices';
 
 const GlobalStyle = createGlobalStyle`
   * {
     margin: 0;
     padding: 0;
-    outline: 0;
+    outline: none;
     box-sizing: border-box;
   }
 
@@ -25,8 +25,8 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    background-color: #e5e5e5;
-    color: #565656;
+    background-color: ${({ theme }) => theme.palette.background};
+    color: ${({ theme }) => theme.palette.text};
     font-size: 1.6rem;
   }
 

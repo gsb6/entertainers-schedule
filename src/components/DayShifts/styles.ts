@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
-import { devices } from '../../style/devices';
-import { inputLabel } from '../../style/commons';
+import { devices } from '../../styles/devices';
+import { inputLabel } from '../../styles/commons';
 
 type Props = {
   selected?: boolean;
@@ -8,11 +8,7 @@ type Props = {
 
 const selectedCSS = css`
   color: #fff;
-  background: linear-gradient(
-    180deg,
-    rgba(237, 125, 194, 0.8) 0%,
-    rgba(236, 125, 194, 0.8) 100%
-  );
+  background: #f097ce;
   border: 1px solid #ee7ec2;
 `;
 

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { inputLabel } from '../../style/commons';
+import { inputLabel } from '../../styles/commons';
 
 export const Container = styled.select`
   width: 100%;

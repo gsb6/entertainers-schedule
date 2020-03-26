@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
-import { devices } from '../../style/devices';
-import { inputLabel } from '../../style/commons';
+import { devices } from '../../styles/devices';
+import { inputLabel } from '../../styles/commons';
 
 type Props = {
   selected?: boolean;

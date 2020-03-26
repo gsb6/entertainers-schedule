@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { devices } from '../style/devices';
+import { devices } from '../styles/devices';
 
 import clownPicture from '../assets/humberto-chavez-7MZclz4GQE8-unsplash.jpg';
 
