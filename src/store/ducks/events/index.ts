@@ -10,7 +10,7 @@ export enum EventsTypes {
 
 export type Event = {
   id?: number;
-  user_id: number;
+  user_id: number | undefined;
   name: string;
   date: string;
   week_day: string;

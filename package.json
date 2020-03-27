@@ -25,7 +25,6 @@
     "@unform/core": "^2.0.0",
     "@unform/web": "^2.0.0",
     "axios": "^0.19.2",
-    "moment": "^2.24.0",
     "polished": "^3.5.1",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",

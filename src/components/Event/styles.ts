@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   height: 120px;
+  margin-bottom: 4px;
   padding: 8px;
   display: flex;
   flex-direction: column;
@@ -14,4 +15,5 @@ export const Container = styled.div`
 
 export const Empty = styled.div`
   height: 120px;
+  margin-bottom: 4px;
 `;

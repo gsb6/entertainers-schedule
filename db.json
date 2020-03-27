@@ -7,7 +7,6 @@
       "password": "123",
       "category": "magician",
       "week_days": [
-        "monday",
         "tuesday",
         "wednesday",
         "thursday",
@@ -15,7 +14,10 @@
         "saturday",
         "sunday"
       ],
-      "day_shifts": ["morning", "afternoon", "night"],
+      "day_shifts": [
+        "afternoon",
+        "night"
+      ],
       "price": 200
     },
     {
@@ -23,10 +25,32 @@
       "email": "gabriel.brunichakI@gmail.com",
       "password": "1234",
       "category": "clown",
-      "week_days": ["wednesday", "thursday", "saturday"],
-      "day_shifts": ["afternoon", "night"],
+      "week_days": [
+        "wednesday",
+        "thursday",
+        "saturday"
+      ],
+      "day_shifts": [
+        "afternoon",
+        "night"
+      ],
       "price": "200",
       "id": 2
+    },
+    {
+      "name": "Thaís",
+      "email": "thais@thais.com",
+      "password": "123456",
+      "category": "clown",
+      "week_days": [
+        "friday",
+        "saturday"
+      ],
+      "day_shifts": [
+        "night"
+      ],
+      "price": "200",
+      "id": 3
     }
   ],
   "events": [
@@ -65,6 +89,105 @@
       "day_shift": "night",
       "address": "Triider",
       "id": 4
+    },
+    {
+      "user_id": 1,
+      "name": "Novo evento",
+      "date": "1585612800000",
+      "week_day": "tuesday",
+      "day_shift": "afternoon",
+      "address": "Zaffari",
+      "id": 5
+    },
+    {
+      "user_id": 1,
+      "name": "Betinha",
+      "date": "1585267200000",
+      "week_day": "friday",
+      "day_shift": "afternoon",
+      "address": "Em casa",
+      "id": 6
+    },
+    {
+      "user_id": 1,
+      "name": "Festa da Júlia",
+      "date": "1584835200000",
+      "week_day": "sunday",
+      "day_shift": "night",
+      "address": "Pracinha",
+      "id": 7
+    },
+    {
+      "user_id": 1,
+      "name": "Gabriel Brunichaki",
+      "date": "1585008000000",
+      "week_day": "tuesday",
+      "day_shift": "night",
+      "address": "Triider",
+      "id": 8
+    },
+    {
+      "user_id": 1,
+      "name": "Teste",
+      "date": "1584835200000",
+      "week_day": "sunday",
+      "day_shift": "afternoon",
+      "address": "Teste",
+      "id": 9
+    },
+    {
+      "user_id": 1,
+      "name": "Outro teste",
+      "date": "1585008000000",
+      "week_day": "tuesday",
+      "day_shift": "afternoon",
+      "address": "aaa",
+      "id": 10
+    },
+    {
+      "user_id": 1,
+      "name": "bbbb",
+      "date": "1585180800000",
+      "week_day": "thursday",
+      "day_shift": "night",
+      "address": "aaa",
+      "id": 11
+    },
+    {
+      "user_id": 1,
+      "name": "vbvb",
+      "date": "1585958400000",
+      "week_day": "saturday",
+      "day_shift": "afternoon",
+      "address": "bbbb",
+      "id": 12
+    },
+    {
+      "user_id": 1,
+      "name": "dddd",
+      "date": "1585353600000",
+      "week_day": "saturday",
+      "day_shift": "night",
+      "address": "s",
+      "id": 13
+    },
+    {
+      "user_id": 3,
+      "name": "Festa",
+      "date": "1585267200000",
+      "week_day": "friday",
+      "day_shift": "night",
+      "address": "Lá longe",
+      "id": 14
+    },
+    {
+      "user_id": 3,
+      "name": "Evento distante",
+      "date": "1590796800000",
+      "week_day": "saturday",
+      "day_shift": "night",
+      "address": "Triider",
+      "id": 15
     }
   ]
 }

@@ -37,10 +37,6 @@ const SecondStep: React.FC = () => {
     });
   }, [firstStepData]);
 
-  useEffect(() => {
-    console.log(user);
-  }, [user]);
-
   const changeCategoryHandler = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setUser({
       ...user,
@@ -63,8 +59,6 @@ const SecondStep: React.FC = () => {
   };
 
   const createAccountHandler = () => {
-    console.log(user);
-
     dispatch(UserCreators.registerRequest(user));
 
     alert('Usuário cadastrado');

@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Form } from '@unform/web';
 import { FormHandles } from '@unform/core';
 import { ApplicationState } from '../../store';
-import { EventsCreators } from '../../store/ducks/events';
+import { Event, EventsCreators } from '../../store/ducks/events';
 
 import GradientButton from '../GradientButton';
 import Input from '../Form/Input';
@@ -21,13 +21,17 @@ const days = [
   'saturday',
 ];
 
+type Props = {
+  onSubmit?: () => void;
+};
+
 const shifts = [
   { label: 'Manhã', value: 'morning' },
   { label: 'Tarde', value: 'afternoon' },
   { label: 'Noite', value: 'night' },
 ];
 
-const NewEvent: React.FC = () => {
+const NewEvent: React.FC<Props> = ({ onSubmit }) => {
   const formRef = useRef<FormHandles>(null);
 
   const dispatch = useDispatch();
@@ -42,8 +46,8 @@ const NewEvent: React.FC = () => {
 
     const { name, address, day_shift } = data;
 
-    const payload = {
-      user_id: user!.id,
+    const payload: Event = {
+      user_id: user.id,
       name,
       date: dateInMilliseconds.toString(),
       week_day: weekDay,
@@ -51,9 +55,11 @@ const NewEvent: React.FC = () => {
       address,
     };
 
-    // dispatch(EventsCreators.add(payload));
+    dispatch(EventsCreators.add(payload));
 
     alert('Evento criado!');
+
+    onSubmit && onSubmit();
 
     reset();
   };

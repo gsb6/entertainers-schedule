@@ -47,7 +47,7 @@ export const UserCreators = {
 };
 
 const INITIAL_STATE: UserState = {
-  data: { id: 1 },
+  data: {},
   loading: false,
   error: '',
   signed: false,

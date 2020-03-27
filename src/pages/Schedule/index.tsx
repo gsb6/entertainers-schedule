@@ -1,14 +1,14 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import moment from 'moment';
 import { useDispatch, useSelector } from 'react-redux';
 import { ApplicationState } from '../../store';
 import { Event as TEvent, EventsCreators } from '../../store/ducks/events';
-import { months, weekDays } from '../../constants';
+import { days, months, weekDays } from '../../constants';
 
 import Event from '../../components/Event';
 import Modal from '../../components/Modal';
 import NewEvent from '../../components/NewEvent';
 import Title from '../../components/Title';
+import NotAvailable from '../../components/NotAvailable';
 
 import LeftArrowIcon from '../../assets/left-arrow.svg';
 import RightArrowIcon from '../../assets/right-arrow.svg';
@@ -50,19 +50,15 @@ const Schedule: React.FC = () => {
     );
   }, [events, firstDay]);
 
-  console.log('eventos dessa semana', weeklyEvents);
-  console.log('eventos', events);
+  useEffect(() => {
+    dispatch(EventsCreators.request(user.id));
+  }, []);
 
   useEffect(() => {
     const today = Date.now();
     const monday = today - new Date(today).getDay() * DAY_IN_MS;
 
     setFirstDay(monday);
-    console.log(new Date(monday));
-  }, []);
-
-  useEffect(() => {
-    dispatch(EventsCreators.request(user.id));
   }, []);
 
   const markParty = (day: string, shift: string) => {
@@ -81,6 +77,10 @@ const Schedule: React.FC = () => {
 
   const nextWeek = () => {
     setFirstDay(firstDay + DAY_IN_MS * 7);
+  };
+
+  const newEventHandler = () => {
+    dispatch(EventsCreators.request(user.id));
   };
 
   return (
@@ -118,73 +118,64 @@ const Schedule: React.FC = () => {
             </S.Grid>
           </S.Days>
           <S.Grid>
-            <div>
-              <Event event={markParty('sunday', 'morning')} />
-            </div>
-            <div>
-              <Event event={markParty('monday', 'morning')} />
-            </div>
-            <div>
-              <Event event={markParty('tuesday', 'morning')} />
-            </div>
-            <div>
-              <Event event={markParty('wednesday', 'morning')} />
-            </div>
-            <div>
-              <Event event={markParty('thursday', 'morning')} />
-            </div>
-            <div>
-              <Event event={markParty('friday', 'morning')} />
-            </div>
-            <div>
-              <Event event={markParty('saturday', 'morning')} />
-            </div>
+            {days.map((day) => {
+              if (
+                !user.day_shifts?.includes('morning') ||
+                !user.week_days?.includes(day)
+              ) {
+                return (
+                  <div>
+                    <NotAvailable />
+                  </div>
+                );
+              }
+
+              return (
+                <div key={day}>
+                  <Event event={markParty(day, 'morning')} />
+                </div>
+              );
+            })}
           </S.Grid>
           <S.Grid>
-            <div>
-              <Event event={markParty('sunday', 'afternoon')} />
-            </div>
-            <div>
-              <Event event={markParty('monday', 'afternoon')} />
-            </div>
-            <div>
-              <Event event={markParty('tuesday', 'afternoon')} />
-            </div>
-            <div>
-              <Event event={markParty('wednesday', 'afternoon')} />
-            </div>
-            <div>
-              <Event event={markParty('thursday', 'afternoon')} />
-            </div>
-            <div>
-              <Event event={markParty('friday', 'afternoon')} />
-            </div>
-            <div>
-              <Event event={markParty('saturday', 'afternoon')} />
-            </div>
+            {days.map((day) => {
+              if (
+                !user.day_shifts?.includes('afternoon') ||
+                !user.week_days?.includes(day)
+              ) {
+                return (
+                  <div>
+                    <NotAvailable />
+                  </div>
+                );
+              }
+
+              return (
+                <div key={day}>
+                  <Event event={markParty(day, 'afternoon')} />
+                </div>
+              );
+            })}
           </S.Grid>
           <S.Grid>
-            <div>
-              <Event event={markParty('sunday', 'night')} />
-            </div>
-            <div>
-              <Event event={markParty('monday', 'night')} />
-            </div>
-            <div>
-              <Event event={markParty('tuesday', 'night')} />
-            </div>
-            <div>
-              <Event event={markParty('wednesday', 'night')} />
-            </div>
-            <div>
-              <Event event={markParty('thursday', 'night')} />
-            </div>
-            <div>
-              <Event event={markParty('friday', 'night')} />
-            </div>
-            <div>
-              <Event event={markParty('saturday', 'night')} />
-            </div>
+            {days.map((day) => {
+              if (
+                !user.day_shifts?.includes('night') ||
+                !user.week_days?.includes(day)
+              ) {
+                return (
+                  <div>
+                    <NotAvailable />
+                  </div>
+                );
+              }
+
+              return (
+                <div key={day}>
+                  <Event event={markParty(day, 'night')} />
+                </div>
+              );
+            })}
           </S.Grid>
         </S.Calendar>
         <Modal
@@ -192,7 +183,7 @@ const Schedule: React.FC = () => {
           onRequestClose={() => setOpenNewEvent(false)}
           title="Cadastrar evento"
         >
-          <NewEvent />
+          <NewEvent onSubmit={newEventHandler} />
         </Modal>
       </S.Container>
     </>
