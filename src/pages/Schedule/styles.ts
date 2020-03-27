@@ -61,4 +61,21 @@ export const Calendar = styled.div`
 export const NewEvent = styled(Button)`
   ${containedButton};
   width: 200px;
+  font-weight: bold;
+`;
+
+export const LeftArrow = styled.div`
+  position: absolute;
+  left: 4%;
+  top: 50%;
+  z-index: 10;
+  cursor: pointer;
+`;
+
+export const RightArrow = styled.div`
+  position: absolute;
+  right: 4%;
+  top: 50%;
+  z-index: 10;
+  cursor: pointer;
 `;
