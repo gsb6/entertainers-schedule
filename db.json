@@ -15,11 +15,7 @@
         "saturday",
         "sunday"
       ],
-      "day_shifts": [
-        "morning",
-        "afternoon",
-        "night"
-      ],
+      "day_shifts": ["morning", "afternoon", "night"],
       "price": 200
     },
     {
@@ -27,15 +23,8 @@
       "email": "gabriel.brunichakI@gmail.com",
       "password": "1234",
       "category": "clown",
-      "week_days": [
-        "wednesday",
-        "thursday",
-        "saturday"
-      ],
-      "day_shifts": [
-        "afternoon",
-        "night"
-      ],
+      "week_days": ["wednesday", "thursday", "saturday"],
+      "day_shifts": ["afternoon", "night"],
       "price": "200",
       "id": 2
     }
@@ -45,7 +34,7 @@
       "id": 1,
       "user_id": 1,
       "name": "evento teste",
-      "date": "1574433747316",
+      "date": "1585191600000",
       "week_day": "friday",
       "day_shift": "morning",
       "address": "Rua Teste, 200 - 221B"
@@ -53,7 +42,7 @@
     {
       "user_id": 1,
       "name": "Festa",
-      "date": "1585353600000",
+      "date": "1585286103000",
       "week_day": "saturday",
       "day_shift": "afternoon",
       "address": "PUCRS",
@@ -62,7 +51,7 @@
     {
       "user_id": 1,
       "name": "La la la",
-      "date": "1585353600000",
+      "date": "1587964503000",
       "week_day": "saturday",
       "day_shift": "night",
       "address": "Redenção",
@@ -72,8 +61,8 @@
       "user_id": 1,
       "name": "Evento da Triider",
       "date": "1585353600000",
-      "week_day": "saturday",
-      "day_shift": "afternoon",
+      "week_day": "monday",
+      "day_shift": "night",
       "address": "Triider",
       "id": 4
     }

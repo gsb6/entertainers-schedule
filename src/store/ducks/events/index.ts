@@ -26,7 +26,8 @@ export type EventState = {
 
 export const EventsCreators = {
   add: (event: Event) => action(EventsTypes.ADD, { event }),
-  request: (user_id: number) => action(EventsTypes.REQUEST, { user_id }),
+  request: (user_id: number | undefined) =>
+    action(EventsTypes.REQUEST, { user_id }),
   success: (data: Event[]) => action(EventsTypes.SUCCESS, { data }),
   failure: (error: string) => action(EventsTypes.FAILURE, { error }),
 };
