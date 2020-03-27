@@ -40,6 +40,11 @@ const Schedule: React.FC = () => {
     }));
   }, [firstDay]);
 
+  useEffect(() => {
+    console.log(events.length, 'eventos');
+    console.log('user.id', user.id);
+  }, [events]);
+
   const weeklyEvents = useMemo<TEvent[]>(() => {
     if (!events.length) return [];
 

@@ -51,6 +51,58 @@
       ],
       "price": "200",
       "id": 3
+    },
+    {
+      "name": "João",
+      "email": "joao@joao.com",
+      "password": "1234",
+      "category": "magician",
+      "week_days": [
+        "monday",
+        "wednesday",
+        "friday"
+      ],
+      "day_shifts": [
+        "morning",
+        "night"
+      ],
+      "price": "200",
+      "id": 4
+    },
+    {
+      "name": "Maria",
+      "email": "maria@maria.com",
+      "password": "maria",
+      "category": "magician",
+      "week_days": [
+        "monday",
+        "wednesday",
+        "friday",
+        "sunday"
+      ],
+      "day_shifts": [
+        "afternoon",
+        "night"
+      ],
+      "price": "150",
+      "id": 5
+    },
+    {
+      "name": "outro",
+      "email": "outro@outro.com",
+      "password": "outro",
+      "category": "magician",
+      "week_days": [
+        "tuesday",
+        "thursday",
+        "saturday"
+      ],
+      "day_shifts": [
+        "afternoon",
+        "night"
+      ],
+      "price": "300",
+      "id": 6
     }
   ],
   "events": [
@@ -188,6 +240,105 @@
       "day_shift": "night",
       "address": "Triider",
       "id": 15
+    },
+    {
+      "user_id": 4,
+      "name": "Evento",
+      "date": "1584921600000",
+      "week_day": "monday",
+      "day_shift": "night",
+      "address": "Triider",
+      "id": 16
+    },
+    {
+      "user_id": 4,
+      "name": "asdasdasd",
+      "date": "1584662400000",
+      "week_day": "friday",
+      "day_shift": "morning",
+      "address": "Triider",
+      "id": 17
+    },
+    {
+      "user_id": 4,
+      "name": "Teste",
+      "date": "1584662400000",
+      "week_day": "friday",
+      "day_shift": "morning",
+      "address": "ssss",
+      "id": 18
+    },
+    {
+      "user_id": 4,
+      "name": "sss",
+      "date": "1584921600000",
+      "week_day": "monday",
+      "day_shift": "morning",
+      "address": "dd",
+      "id": 19
+    },
+    {
+      "user_id": 4,
+      "name": "Gabriel",
+      "date": "1585094400000",
+      "week_day": "wednesday",
+      "day_shift": "night",
+      "address": "Triider",
+      "id": 20
+    },
+    {
+      "user_id": 4,
+      "name": "assadasd",
+      "date": "1585267200000",
+      "week_day": "friday",
+      "day_shift": "night",
+      "address": "Centro",
+      "id": 21
+    },
+    {
+      "user_id": 1,
+      "name": "dd",
+      "date": "1585267200000",
+      "week_day": "friday",
+      "day_shift": "night",
+      "address": "vv",
+      "id": 22
+    },
+    {
+      "user_id": 5,
+      "name": "Primeiro evento",
+      "date": "1584835200000",
+      "week_day": "sunday",
+      "day_shift": "afternoon",
+      "address": "Na vizinha",
+      "id": 23
+    },
+    {
+      "user_id": 5,
+      "name": "vv",
+      "date": "1585094400000",
+      "week_day": "wednesday",
+      "day_shift": "night",
+      "address": "cc",
+      "id": 24
+    },
+    {
+      "user_id": 6,
+      "name": "Primeiro evento",
+      "date": "1585008000000",
+      "week_day": "tuesday",
+      "day_shift": "night",
+      "address": "Na rua",
+      "id": 25
+    },
+    {
+      "user_id": 6,
+      "name": "Outro evento",
+      "date": "1589414400000",
+      "week_day": "thursday",
+      "day_shift": "night",
+      "address": "Na praça",
+      "id": 26
     }
   ]
 }
